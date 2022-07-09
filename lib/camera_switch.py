@@ -40,6 +40,28 @@ def SetPicStyle(style):
         return False
     else:
         return bRet
+    
+def TakePic():
+    POS_TP_SHOT = (201, 77)
+    
+    bRet = True
+    
+    try:
+        win = pyautogui.getWindowsWithTitle('EOS')
+        
+        if win:
+            win = pyautogui.getWindowsWithTitle('EOS')[0]
+            win.activate()
+        else:
+            bRet= False
+    
+        # 촬영버튼 클릭
+        pyautogui.click(win.left + POS_TP_SHOT[0], win.top + POS_TP_SHOT[1])
+        
+    except:
+        return False
+    else:
+        return bRet
         
         
 def DoCmdJob(cmd):
